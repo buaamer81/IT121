@@ -9,15 +9,37 @@
 </head>
 
 <body>
-    hello everyone
-  <script src="script.js"></script>
 
-  <!--
-  This script places a badge on your repl's full-browser view back to your repl's cover
-  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
-  teal, blue, blurple, magenta, pink!
-  -->
-  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+  <script>
+    // Author: Rami Buaamer
+    // Date: January 12, 2024
+    // Pig Latin Game
+
+    // Prompt user for input
+    let userInput = prompt("Enter a word:");
+    while (userInput.length <= 1) {
+       // Display an alert and prompt again for a valid input
+       alert("Input can't be translated. Please enter a valid word");
+       userInput = prompt("Enter a word:");
+    }  
+    // Convert the word to lowercase for case-insensitive comparison
+    const word = userInput.toLowerCase();
+
+    // Translate the word to Pig Latin
+
+    // Check if the word starts with a vowel else Check if the word starts with one consonant
+    if ((word.charAt(0) == 'a') || (word.charAt(0) == 'i') || (word.charAt(0) == 'o') || (word.charAt(0) == 'u') || (word.charAt(0) == 'e')) {
+      document.write(word + 'way');
+
+    } else if ((word.charAt(1) == 'a') || (word.charAt(1) == 'i') || (word.charAt(1) == 'o') || (word.charAt(1) == 'u') || (word.charAt(1) == 'e')) {
+      document.write(word.substring(1) + word.charAt(0) + 'ay');
+
+    } else {
+      // If a word begins with two consonants, both letters are moved to the end and 'ay' is appended:
+      document.write(word.substring(2) + word.substring(0, 2) + 'ay');
+    }
+    
+  </script>
+  
 </body>
-
 </html>
