@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <script>
+    // Author: Rami Buaamer
+    // Date: January 17, 2024
+    // Making The Grade
+    var grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
+     let min = 100;
+     let max = 0;
+     let sum = 0;
+     let gradeArray = grades.split(", ")
+     for (let i = 0; i < gradeArray.length; i++){
+          let student = gradeArray[i].split('|')
+          let name = student[0].charAt(0).toUpperCase() + student[0].substring(1)
+          let score = parseInt(student[1]);
+          document.write(name + "  -  " +  score + "<br>")
+          if (score > max){
+              max = score;
+          }
+          if (score < min){
+              min = score;
+          }
+          sum = sum + score;
+     }
+     document.write("Total number of students = " +  gradeArray.length + "<br>")
+     document.write("The lowest score =" +  min + "<br>")
+     document.write("The highest score = " +  max + "<br>")
+     document.write("The average score =  " +  sum/gradeArray.length + "<br>").
+
+  </script>
+
+</body>
+
+</html>

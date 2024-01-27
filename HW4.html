@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+
+<h1>Functions & validation</h1>
+
+<form id="form1" action="#" onsubmit="return validateForm(this);">
+  first name: <input type="text" name="firstname"><br>
+  last name: <input type="text" name="lastname"><br>
+  password: <input type="text" name="password"><br>
+
+  <button >Check</button>
+</form>
+
+<hr><div id="message"></div>
+
+<script>
+
+// add validatePassword function here
+const validatePassword = (password) => {
+
+const lowerCasePasssword = password.toLowerCase();
+const upperCasePasssword = password.toUpperCase();
+ if ((password.length >= 8) && (lowerCasePasssword !== password) && (upperCasePasssword !== password)){
+     
+     return true;
+ } else {return false; 
+    } 
+}
+const validateForm = (myForm) => {
+
+  var firstname = myForm.firstname.value; // get text of firstname field
+  var lastname = myForm.lastname.value; // get text of lastname field
+  var password = myForm.password.value; // get text of password field
+ 
+
+  // Form validation code goes here
+  
+
+  if ((firstname.length < 1 ) || (lastname.length < 1)){
+    $("#message").html("Your either first or last name is missing");
+    
+
+  } else {
+    if (validatePassword(password)){
+        $("#message").html("Well Done. All form fields are valid");
+} else { $("#message").html("Invalid password. A valid password should have at least 8 characters, at least one uppercase letter, and at  least one lowercase letter");
+  }
+
+  }
+
+  return false; // prevent page reload
+}
+
+</script>
+
+</body>
+</html>
