@@ -13,15 +13,50 @@
 
 <script>
 
+// Define the Card object and deck 
+function Card(value, suit) {
+        this.value = value;
+        this.suit = suit;
+        }
+
+const deck = [];
+
 const dealHand = () => {
 
   /* code to deal a card hand goes here */
+    // Clear the currently-displayed hand
+    $("#card_hand").html("");
 
-  // update 'card_hand' DIV with appropriate information
-  $("#card_hand").html("Button clicked");
+    // Define array of suits
+    const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
 
-  return false; // prevent page reload
-}
+    // Populate the deck with 52 cards
+    for (let i = 2; i <= 14; i++) {
+        for (let j = 0; j < suits.length; j++) {
+            let cardValue = i;
+            // Create a new Card object and add it to the deck
+            const card = new Card(cardValue, suits[j]);
+            deck.push(card);
+        }
+    }
+      // display randomly five cards
+    for (let i = 1; i <= 5; i++) {
+        let select = Math.floor(Math.random() * 52);
+        if (deck[select].value == 11) {
+            $("#card_hand").append(`${i}-  Ace of ${deck[select].suit} <br>`);
+        } else if (deck[select].value == 12){
+            $("#card_hand").append(`${i}-  Jack of ${deck[select].suit}  <br>`);
+        } else if (deck[select].value == 13){
+            $("#card_hand").append(`${i}-  Queen of ${deck[select].suit}  <br>`);
+        } else if (deck[select].value == 14){
+            $("#card_hand").append(`${i}-  King of ${deck[select].suit}  <br>`);
+        } else {$("#card_hand").append(`${i}- ${deck[select].value} of ${deck[select].suit}  <br>`);}
+    }
+
+return false; // prevent page reload}
+    }
+    
+  
 
 </script>
 
