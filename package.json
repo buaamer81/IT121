@@ -1,0 +1,15 @@
+{
+  "name": "quizapp",
+  "version": "1.0.0",
+  "description": "Quiz game web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/buaamer81/IT121"
+  },
+  "author": "Rami Buaamer",
+  "license": "ISC"
+}
